@@ -38,4 +38,4 @@ You can also navigate to `Queues -> Dishes` to view a graph of Queued messages.
 4. Watch the Dishes get washed!
 
 ## More info
-Please see the whole presentation at: LINK.
+Please see the whole presentation at: http://slides.com/francolaiuppa/scaling-a-microservices-architecture-using-docker-and-compose/fullscreen .
