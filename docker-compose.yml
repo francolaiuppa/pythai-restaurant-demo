@@ -1,0 +1,23 @@
+version: '2'
+services:
+  rabbit:
+    image: rabbitmq:3.6.1-management
+    restart: always
+    ports:
+      - "0.0.0.0:15672:15672"
+
+  dishwasher:
+    image: francolaiuppa/docker-nodemon-forever
+    volumes:
+      - "./dishwasher/app:/usr/src/app"
+    links:
+      - "rabbit"
+    command: "npm start"
+
+  dirtydish:
+    image: python
+    volumes:
+      - "./dirty-dish-generator:/data"
+    links:
+      - "rabbit"
+    command: "/bin/bash -c 'pip install pika && sleep 5 && python /data/main.py'"
